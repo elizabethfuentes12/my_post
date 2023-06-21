@@ -10,7 +10,7 @@ authorName: Elizabeth Fuentes
 date: 2023-06-12
 ---
 
-It is common for organizations to accumulate project documentation, manuals, tenders, Salesforce, slack, repositories full of code... and much more. To do a search in that sea of information of thousands of documents, you first have to find the document where it might be and then perform the search on it. Well, you found what you were looking for, but it is very long and you would like to summarize it. You could use an application on the web, but... you would be sharing your organization’s information with the world. 🚨DANGER🚨!
+It is common for organizations to accumulate project documentation, manuals, tenders, Salesforce, slack, repositories full of code... and much more. To do a search in that sea of information of thousands of documents, you first have to find the document where it might be and then perform the search on it. OK, you found what you were looking for, but it is very long and you would like to summarize it. You could use an application on the web, but... you would be sharing your organization’s information with the world. 🚨DANGER🚨!
 
 Follow me through this reading where I will show you how you can create a knowledge base with multiple sources, which you can ask and it will answer a summary of what you are looking for and the link to go deeper, and to make it more accessible let’s do it Q&A in any language.
 
@@ -40,12 +40,12 @@ Once the Index is active, add a data source to an Inde (Fig. 2), select **Add da
 At the end of the data synchronization, you would already have the knowledge base ready to perform queries, go to the navigation panel on the left, choose the **Search indexed content** option.
 
 ![Search in a Kendra Index](images/kendra_2.gif)
-<h4 align="center">Fig 2.  Search in a Kendra Index. </h4> 
+<h4 align="center">Fig 3.  Search in a Kendra Index. </h4> 
 
 
 [Here](https://docs.aws.amazon.com/kendra/latest/dg/getting-started.html) you can see more ways to upload sources to Kendra. 
 
-You can see that the result that Kendra gives is very complete, even that gives you several sources to find the answer, but wouldn't a summarized result be better?, which leads us to the next step.
+ Kendra delivere several sources to find the answer, but wouldn't a summarized result be better?, which leads us to the next step.
 
 2. ### Create ENDPOINT to invoke model of summarization using Sagemaker Jumpstart🚀.
 
@@ -61,7 +61,7 @@ Now that I've introduced you to [SageMaker JumpStart](https://docs.aws.amazon.co
 |5. Create a [Sagemaker Domain](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html) using [Quick setup](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html), this takes a few minutes⏳... or **Select domain and user profile** if you already have one created. |![Create a Sagemaker Domain](images/fig_7.png)![Select domain and user profile](images/fig_8.png)|
 |6. Follow the steps in jupyter notebook, explore it, play and wait for me in step **6.1**|![Select domain and user profile](images/fig_9.png)|
 
-In the jupyter notebook you can directly use FLAN-T5 model for many NLP tasks, without fine-tuning the model, such as: 
+In the jupyter notebook you can use FLAN-T5 model for many NLP tasks, without fine-tuning the model, such as: 
 
 - Text summarization
 - Common sense reasoning / natural language inference
@@ -70,7 +70,7 @@ In the jupyter notebook you can directly use FLAN-T5 model for many NLP tasks, w
 - Translation
 - Pronoun resolution
 
-In part 3 of the jupyter notebook you deployed an [sagemaker endopoint](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-recommender.html), the call to do [real-time inference](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html) to model. You can invoke the endpoint from anywhere as an API call, using Boto3 and AWS credentials. 
+Go to part 3 in jupyter notebook to deployed a [sagemaker endopoint](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-recommender.html), this is the call to do [real-time inference](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html) to ML model as an API call, using Boto3 and AWS credentials. 
 
 You can get the Sagemaker Endpoint in two ways:
 
@@ -79,12 +79,32 @@ You can get the Sagemaker Endpoint in two ways:
 ```code
 model_predictor.endpoint_name
 ```
+
 - Console:
 
 Find **Inference** on the left-hand navigation panel and choose **Endpoints**.
 
 🚨**Note:** You have to be careful, because while the endpoint is active, the EC2 instance is also active, so you are paying for the activity, check [pricing here](https://aws.amazon.com/es/sagemaker/pricing/).
 
+
+3. ### 👩🏻‍🔬 Test the solution in a jupyter notebook 
+
+In the same jupyter notebook from the previous step, open a new notebook.
+
+**File -> New Notebook** (Fig. 4)
+
+![Open New Notebook](images/fig_11.png)
+<h4 align="center">Fig 4.  Open New Notebook. </h4> 
+
+
+
+**Set up environment of new notebook:** (Fig. 5)
+- Image: Data Science 
+- Kernel: Python 3
+- Intance type: ml.t3.medium
+
+![Set up environment of new notebook](images/fig_10.png)
+<h4 align="center">Fig 5.  Set up environment of new notebook. </h4> 
 
 
 
