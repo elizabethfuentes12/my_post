@@ -225,36 +225,22 @@ parameters = {
     "top_p": 0.95,
     "do_sample": True,
 }
-
-prompts = [
-    "Briefly summarize this sentence: {text}",
-    "Write a short summary for this text: {text}",
-    "Generate a short summary this sentence:\n{text}",
-    "{text}\n\nWrite a brief summary in a sentence or less",
-    "{text}\nSummarize the aforementioned text in a single phrase.",
-    "{text}\nCan you generate a short summary of the above paragraph?",
-    "Write a sentence based on this summary: {text}",
-    "Write a sentence based on '{text}'",
-    "Summarize this article:\n\n{text}",
-]
 ```
 
 ```python
 def summarization(text):
     
-    for each_prompt in prompts:
-        payload = {"text_inputs": each_prompt.replace("{text}", text), **parameters}
-        query_response = query_endpoint_with_json_payload(
+    payload = {"text_inputs": f"Briefly summarize this sentence: {text}", **parameters}
+    query_response = query_endpoint_with_json_payload(
             json.dumps(payload).encode("utf-8"), endpoint_name=endpoint_name
         )
-        generated_texts = parse_response_multiple_texts(query_response)
-        print(f"{bold} The {num_return_sequences} summarized results are{unbold}:{newline}")
-        for idx, each_generated_text in enumerate(generated_texts):
-            answer_text_translated = TranslateText(each_generated_text,TargetLanguage,SourceLanguage)
-            print(f"{bold}Result {idx}{unbold}: {answer_text_translated}{newline}")  
+    generated_texts = parse_response_multiple_texts(query_response)
+    print(f"{bold} The {num_return_sequences} summarized results are{unbold}:{newline}")
+    for idx, each_generated_text in enumerate(generated_texts):
+        answer_text_translated = TranslateText(each_generated_text,TargetLanguage,SourceLanguage)
+        print(f"{bold}Result {idx}{unbold}: {answer_text_translated}{newline}")  
 
     return
-
 ```
 
 ```python
@@ -265,11 +251,9 @@ def show_result_answer (response):
             answer_text = query_result['AdditionalAttributes'][0]['Value']['TextWithHighlightsValue']['Text']
             resume(answer_text)
             print("Go deeper: ", query_result['DocumentURI'])
-
 ```
 
 ```python
-
 SourceLanguage = DetectDominantLanguage(text)
 query = TranslateText(text,SourceLanguage,TargetLanguage)
 response = QueryKendra(index_id,query)
