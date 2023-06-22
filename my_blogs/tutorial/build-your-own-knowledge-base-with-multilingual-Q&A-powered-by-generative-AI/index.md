@@ -237,7 +237,9 @@ prompts = [
     "Write a sentence based on '{text}'",
     "Summarize this article:\n\n{text}",
 ]
+```
 
+```python
 def summarization(text):
     
     for each_prompt in prompts:
@@ -253,6 +255,9 @@ def summarization(text):
 
     return
 
+```
+
+```python
 def show_result_answer (response):
     for query_result in response["ResultItems"]:
 
@@ -271,24 +276,6 @@ response = QueryKendra(index_id,query)
 show_result_answer(response)
 
 ```
-
-In the same jupyter notebook from the previous step, open a new notebook.
-
-**File -> New Notebook** (Fig. 4)
-
-![Open New Notebook](images/fig_11.png)
-<h4 align="center">Fig 4.  Open New Notebook. </h4> 
-
-
-
-**Set up environment of new notebook:** (Fig. 5)
-- Image: Data Science 
-- Kernel: Python 3
-- Intance type: ml.t3.medium
-
-![Set up environment of new notebook](images/fig_10.png)
-<h4 align="center">Fig 5.  Set up environment of new notebook. </h4> 
-
 
 
 ## Conslusion
