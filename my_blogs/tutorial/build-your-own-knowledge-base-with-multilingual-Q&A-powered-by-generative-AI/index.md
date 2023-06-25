@@ -150,7 +150,7 @@ show__result (response)
 ```
 [Language code](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html) 
 
- Kendra delivere several sources to find the answer, but wouldn't a summarized result be better?, which leads us to the next step.
+ Kendra deliveres several sources to find the answer, but wouldn't a summarized result be better?. Which leads us to the next step.
 
 ## Add summarization to a multilingual Q&A intelligent database.
 
