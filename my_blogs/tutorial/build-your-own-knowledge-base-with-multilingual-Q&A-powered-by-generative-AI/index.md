@@ -12,9 +12,9 @@ date: 2023-06-12
 
 Organizations often accumulate a wide range of documents, including project documentation, manuals, tenders, Salesforce data, code repositories, and more. When searching through this vast amount of information, it can be a tedious process of locating the specific document and then conducting the search within it. Once you find the desired document, it may be lengthy, and you might prefer a summary of its content. 
 
-While web applications are available for summarization, using them could mean sharing your organization's sensitive information with the public: 🚨DANGER🚨.
+While web applications are available for summarize, using them could mean sharing your organization's sensitive information: 🚨DANGER🚨.
 
-Join me in this blog as I guide you through the process of building a comprehensive knowledge base using multiple sources. With this knowledge base you can seek answers to your queries and receive concise summaries along with links for further deeper. To ensure accessibility, we will facilitate this process through a convenient question-and-answer format available in any language.
+Join me in this blog as I guide you through the process of building a comprehensive knowledge base using multiple sources. With this knowledge base you can seek answers to your queries and receive concise summaries along with links for further study. To ensure accessibility, we will facilitate this process through a convenient question-and-answer format available in any language.
 
 We will build it in two parts:
 
@@ -143,13 +143,14 @@ By incorporating these steps, we can seamlessly handle multilingual interactions
 ```python
 text = "¿que es s3?"
 index_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-TargetLanguage = "en" #English language code 
+TargetLanguage = "en" #English language code
 
 SourceLanguage = DetectDominantLanguage(text)
 query = TranslateText(text,SourceLanguage,TargetLanguage)
 response = QueryKendra(index_id,query)
 show__result (response)
 ```
+[Language code](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html) 
 
  Kendra delivere several sources to find the answer, but wouldn't a summarized result be better?, which leads us to the next step.
 
