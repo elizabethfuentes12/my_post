@@ -32,7 +32,7 @@ First you need to create a Kendra Index, to hold the contents of your documents 
 ![create a kendra index](images/kendra_1.gif)
 <h4 align="center">Fig 1. Create an Amazon Kendra Index. </h4> 
 
-Once the Index is **active**, add a data source to an Index (Fig. 2), select **Add data source** and then select **Add dataset**, add a name and select English(en) in Language. 
+Once the Index is **Active**, add a data source to an Index (Fig. 2), select **Add data source** and then select **Add dataset**, add a name and select English(en) in Language. 
 
 ![add a data source to an Index](images/fig_2.png)
 <h4 align="center">Fig 2. add a data source to an Index. </h4> 
@@ -43,9 +43,9 @@ At the end of the data synchronization, you will have the knowledge base ready f
 
 2. ### Queries to an index in Amazon Kendra - [Documentation](https://docs.aws.amazon.com/kendra/latest/dg/searching.html)
 
-To search an Amazon Kendra index, you use the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API and returns information about the indexed documents of Data sources. 
+To search an Amazon Kendra index, you use the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API and it returns information about the indexed documents of Data sources. 
 
-Amazon Kendra utilizes various factors to determine the most relevant documents based on the search terms entered. These factors include the text/body of the document, document title, searchable custom text fields, a date field for freshness, and other relevant fields. 
+Amazon Kendra utilizes various factors to determine the most relevant documents based on the search terms entered. These factors include the text/body of the document, document title, searchable custom text fields, and other relevant fields. 
 
 Additionally, filters can be applied to the search to narrow down the results, such as filtering documents based on a specific custom field like "department" (e.g., returning only documents from the "legal" department). For more information, see [Custom fields or attributes](https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html).
 
@@ -58,7 +58,7 @@ You can query the Kendra API in several ways:
 ![Search in a Kendra Index](images/kendra_2.gif)
 <h4 align="center">Fig 3.  Search in a Kendra Index. </h4> 
 
-**With AWS SDK for [Python(Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kendra.html)**
+**With AWS SDK for [Python(Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kendra.html)** use this code:
 
 ``` python
 import boto3
