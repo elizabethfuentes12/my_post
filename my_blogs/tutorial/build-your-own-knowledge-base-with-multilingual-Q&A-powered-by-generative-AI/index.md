@@ -79,7 +79,7 @@ With [AWS SDK for Java](https://sdk.amazonaws.com/java/api/latest/software/amazo
 
 2. ### Add multilingual features
 
-In this segment, we will use two AI/ML services that you can use with an API call:
+In this segment, you will use two AI/ML services that you can use with an API call:
 
 - [Amazon Comprehend](https://aws.amazon.com/comprehend/) to detect determines the dominant language in which the question is asked, using [DetectDominantLanguage](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/client/detect_dominant_language.html#detect-dominant-language) from [Boto3 Comprehend client](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html):
 
@@ -90,7 +90,7 @@ The TranslateText API needs the following parameters:
 - **SourceLanguageCode (string):** One of the [supported language codes](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html) for the source text, if you specify **auto** , Amazon Translate will call Amazon Comprehend to determine the source language. 
 - **TargetLanguageCode (string):** One of the supported language codes for the target text.
 
-This will be the function that we will use to perform the translation:
+This will be the function that you will use to perform the translation:
 
 ```python
 import boto3
@@ -104,7 +104,7 @@ def TranslateText(text,SourceLanguageCode,TargetLanguage):
     TargetLanguageCode=TargetLanguage
 )
 translated_text = response['TranslatedText']
-source_language_code = response['SourceLanguageCode'] #we need it to answer in the original language
+source_language_code = response['SourceLanguageCode'] #you need it to answer in the original language
     return translated_text, source_language_code
 ```
 
@@ -159,7 +159,7 @@ Amazon Kendra deliveres two results Answer and Documents, and the answer it coul
 
 1. ### Create ENDPOINT to invoke model of summarization using Sagemaker Jumpstart🚀.
 
-In this part you are going to use a [Amazon SageMaker Domain](https://docs.aws.amazon.com/sagemaker/latest/dg/sm-domain.html) as [Machine Learning Environments](https://docs.aws.amazon.com/sagemaker/latest/dg/machine-learning-environments.html), where AWS provides all the necessary infrastructure to train and deploy the model, which once ready you can discard on that environment we will use [SageMaker JumpStart](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html) which provides pretained, open-source models for a wide range of problem types (as our problem to summarize) to help you get started with machine learning, and the best is you can also access a models using the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html#use-sagemaker-jumpstart-algorithms-with-pretrained-models).
+In this part you are going to use a [Amazon SageMaker Domain](https://docs.aws.amazon.com/sagemaker/latest/dg/sm-domain.html) as [Machine Learning Environments](https://docs.aws.amazon.com/sagemaker/latest/dg/machine-learning-environments.html), where AWS provides all the necessary infrastructure to train and deploy the model, which once ready you can discard on that environment you will use [SageMaker JumpStart](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html) which provides pretained, open-source models for a wide range of problem types (as our problem to summarize) to help you get started with machine learning, and the best is you can also access a models using the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html#use-sagemaker-jumpstart-algorithms-with-pretrained-models).
 
 Now that I've introduced you to [SageMaker JumpStart](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html), let's start working with it:
 |||
@@ -216,7 +216,7 @@ parameters = {
 }
 ```
 
-To get inferences from the model hosted at the specified endpoint we need to use the [InvokeEndpoint API](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html) from the [Amazon SageMaker Runtime](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime.html), we do it with the following function:
+To get inferences from the model hosted at the specified endpoint you need to use the [InvokeEndpoint API](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html) from the [Amazon SageMaker Runtime](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime.html), you do it with the following function:
 
 ```python
 def query_endpoint_with_json_payload(encoded_json, endpoint_name):
@@ -229,7 +229,7 @@ def query_endpoint_with_json_payload(encoded_json, endpoint_name):
 
 [InvokeEndpoint API parameters](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html)
 
-To make the response human readable, we use the following function:
+To make the response human readable, with the following function:
 
 ```python
 def parse_response_multiple_texts(query_response):
@@ -270,7 +270,7 @@ def show_result_answer (response):
             print("Go deeper: ", query_result['DocumentURI'])
 ```
 
-Bring all the code together we *Build your own knowledge base with multilingual Q&A powered by generative AI*
+Bring all the code together and *Build your own knowledge base with multilingual Q&A powered by generative AI*
 
 ```python
 text = "Que es S3?"
@@ -280,12 +280,13 @@ response = QueryKendra(index_id,query)
 show_result_answer(response)
 ```
 
-In Fig 5 you can see 3 results of the summarized text, this is because we set num_return_sequences parameter to 3:
+In Fig 5 you can see 3 results of the summarized text, this is because you set num_return_sequences parameter to 3:
 
 ![Sumarized results](images/fig_12.png)<h4 align="center">Fig 5.  Amazon Kendra answer result in spanish. </h4> 
 
 ## Conslusion
-Thank you for joining me on this journey, where we build a database of intelligent knowledge from various sources. This database allows us to make inquiries in any language, receiving summarized responses in the desired language, all prioritizing data privacy.
+
+Thank you for joining me on this journey, where you Gather all the code and build your own knowledge base with multilingual Q&A powered by generative AI. This database allows you to make inquiries in any language, receiving summarized responses in the desired language, all prioritizing data privacy.
 
 To enhance the performance of this application, you can introduce a caching mechanism by incorporating an Amazon DynamoDB table. In this table, you can store the responses obtained from Amazon Kendra, utilizing the response as the partition key and the summary as the sort key. By implementing this approach, you can first consult the table before generating the summary, thereby delivering faster responses and optimizing the overall user experience.
 
