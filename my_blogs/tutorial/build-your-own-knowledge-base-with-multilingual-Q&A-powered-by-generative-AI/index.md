@@ -14,7 +14,7 @@ Organizations often accumulate a wide range of documents, including project docu
 
 Web applications are available to summarize, however you should watch out! using them could mean sharing your organization's sensitive information: 🚨DANGER🚨.
 
-Join me in this blog as I guide you through the process of building a comprehensive knowledge base using multiple sources. With this knowledge base you can seek answers to your queries and receive concise summaries along with links for further study. To ensure accessibility, we will facilitate this process through a convenient question-and-answer format available in multiple language.
+Join me in this blog as I guide you through the process of building a comprehensive knowledge base using multiple sources. With this knowledge base you can seek answers to your queries and receive concise summaries along with links for further study. To ensure accessibility, we will facilitate this process through a convenient question-and-answer format available in multiple languages.
 
 We will build it in two parts:
 
@@ -25,7 +25,7 @@ We will build it in two parts:
 
  1. ### Build the smart database with [Amazon Kendra](https://aws.amazon.com/pm/kendra), using the sample data.🤖
 
-Kendra is an intelligent search service powered by machine learning, where you can added, updated, or deleted automatically synchronize [multiples data source](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html), and also index web pages by providing the URLs to crawling. 
+Kendra is an intelligent search service powered by machine learning, where you can add, update, or delete automatically synchronize [multiples data source](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html), and also index web pages by providing the URLs to crawling. 
 
 For this app you are going to use the sample data of Kendra, that covers Amazon Elastic Compute Cloud (Amazon EC2), Amazon Kendra, Amazon Simple Storage Service (Amazon S3), and AWS Lambda
 
