@@ -199,7 +199,7 @@ Find **Inference** on the left-hand navigation panel and choose **Endpoints**.
 
 2. ### 👩🏻‍🔬 Add summarization features
 
-In **[step 5](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart-foundation-models/text2text-generation-flan-t5-ul2.ipynb)** you can see the advanced parameters to control the generated text while performing inference definition that this model supports. 
+In **[step 5](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart-foundation-models/text2text-generation-flan-t5-ul2.ipynb)** on Jupyter notebook you can see the advanced parameters to control the generated text while performing inference definition that this model supports. 
 
 Let's define the parameters as follows:
 
