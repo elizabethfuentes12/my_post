@@ -10,12 +10,14 @@ authorName: Elizabeth Fuentes
 date: 2023-06-12
 ---
 
-Would you imagine that you could create your own translator application in just a few steps? That it´s capable of identifying the language you are writing in, multilengual translator? and also delivers an audio file with the correct pronunciation?, yes, Today it is possible by combining AWS services. 
+Would you imagine that you could create your own translator application in just a few steps? That it´s capable of identifying the language you are writing in, multilengual translator? and also delivers an audio file with the correct pronunciation?, yes, Today it is possible by combining some AWS services. 
+
+I know there are many of these applications, but none built by you and the best way to learn is by get hands on, and create new thing, it doesn't matter if that exist, the important is to learn and develop a new skill.
 
 In this blog you are going to create a translator chatbot app, with [Amazon Lex](https://aws.amazon.com/lex/) like the chatbot that will responsible for capturing text or audio you want to translate, you will use an Amazon lambda function like hook with the code of:
--	[Amazon Comprehend]() in charge of detecting the language entered.
--	[Amazon Translate]() it will translate into the desired language.
--	[Amazon Polly]() it delivers the audio with the correct pronunciation. 
+-	[Amazon Comprehend](https://aws.amazon.com/comprehend/) in charge of detecting the language entered.
+-	[Amazon Translate](https://aws.amazon.com/translate/) it will translate into the desired language.
+-	[Amazon Polly](https://aws.amazon.com/polly/) it delivers the audio with the correct pronunciation. 
 
 ![Diagram translator chatbot app"](images/fig_1.png)
 <h4 align="center">Fig 1. Diagram translator chatbot app. </h4> 
